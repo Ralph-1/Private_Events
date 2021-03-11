@@ -1,17 +1,21 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<main><br />
+  <div class="container jumbotron text-center w-50">
+    <h1 class="text-center" >Create new user <h1>
+    <%= form_with model: @user do |form| %>
+      <%# <%= user_errors %> %>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <p>
+        <%= form.label :name %>
+      </p>
+      <p>
+        <%= form.text_field :name, class: 'form-control'%>
+      </p>
+      <p>
+        <%= form.submit 'Create account', class: 'btn btn-outline-success'%>
+      </p>
+    <% end %>
+  <div> 
+<%= link_to 'Login', new_session_path, class: 'btn bg-primary text-white'%>
+</main>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+
