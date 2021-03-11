@@ -1,2 +1,24 @@
 class SessionsController < ApplicationController
+  before_action :ensure_login, only: %i[destroy]
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.find_by(name: params[:name])
+    if @user
+      session[:user_id] = @user.id
+      redirect_to events_path, notice: "Welcome #{@user.name}!"
+    else
+      flash.now.alert = 'Login faild'
+      render :new
+    end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = 'You have successfully logged out.'
+    redirect_to events_path
+  end
 end
