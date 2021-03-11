@@ -4,7 +4,7 @@
 
     <div class="jumbotron">
       <% @upcoming_events.each do |t| %>
-        <strong>Description : </strong><%= t.details%><br /><br />
+        <strong>Description : </strong><%= t.description%><br /><br />
         <strong>Date : </strong><%= t.date %>
       <% end %>
     </div>
@@ -15,7 +15,7 @@
 
     <div class="jumbotron">
       <% @past_events.each do |t| %>
-        <strong>Description : </strong><%= t.details%><br /><br />
+        <strong>Description : </strong><%= t.description%><br /><br />
         <strong>Date : </strong><%= t.date %><hr>
       <% end %>
     </div>

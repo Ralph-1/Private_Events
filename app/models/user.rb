@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :events, foreign_key: :creator_id
+  has_many :created_events, class_name: 'Event', dependent: :destroy, foreign_key: 'creator_id'
 
   validates :name, presence: true
 end
