@@ -2,7 +2,7 @@
   <div class="container jumbotron text-center w-50">
     <h1 class="text-center" >Create new user <h1>
     <%= form_with model: @user do |form| %>
-      <%# <%= user_errors %> %>
+      <%= user_errors %>
 
       <p>
         <%= form.label :name %>
