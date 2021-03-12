@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  # before_action :ensure_login, only: %i[create show]
+  before_action :ensure_login, only: %i[create show]
 
   def index
     @event = Event.all
